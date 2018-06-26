@@ -19,7 +19,7 @@ Ensure that the [Babelfish server is running](https://doc.bblf.sh/user/getting-s
 srcml repos2bow -f id -x repo -l Java Python Ruby --min-docfreq 5 --persist DISK_ONLY --docfreq docfreq.asdf --bow bow.asdf
 ```
 
-Change "Java Python Ruby" to any list of languages you want to process and are [annotated by Babelfish](https://doc.bblf.sh/languages.html). It is possible to run it on a Spark cluster, in that case specify `--spark`.
+Change "Java Python Ruby" to any list of languages you want to process and are [annotated by Babelfish](https://doc.bblf.sh/languages.html). It is possible to run it on a Spark cluster, in that case, specify `--spark`.
 
 ## Convert the BOW model to Vowpal Wabbit format
 
@@ -33,7 +33,7 @@ The reason we use the intermediate format is that BigARTM's Python API is much s
 
 ## Convert Vowpal Wabbit dataset to BigARTM batches
 
-You will need a working `bigartm` command-line application. The following command should install `bigartm` to the current working directory, provided by you have all the dependencies present in the system.
+You will need a working `bigartm` command-line application. The following command should install `bigartm` in the current working directory, provided by you have all the dependencies present in the system.
 
 ```text
 srcml bigartm
@@ -69,9 +69,8 @@ First we convert the model to the text format:
 ./bigartm --use-batches artm_batches --use-dictionary artm_batches/artm.dict --load-model stage2.bigartm -p 0 --write-model-readable readable_stage2.txt
 ```
 
-Second we convert the text format to the ASDF:
+Second, we convert the text format to the ASDF:
 
 ```text
 srcml bigartm2asdf readable_stage2.txt topic_model.asdf
 ```
-
